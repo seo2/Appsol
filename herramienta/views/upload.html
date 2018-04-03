@@ -1,0 +1,52 @@
+<form action="" method="post" enctype="multipart/form-data" class="ng-invalid ng-invalid-required ng-dirty">
+                <div class="form-group">
+                    <label for="excel_file">Excel File</label>
+                    <input type="file" name="excel_file" accept=".xlsx" onchange="angular.element(this).scope().fileChanged(this.files);" required="true">
+                </div>
+				<div class="from-group">
+					<label for="tipo_componente">Tipo de componente</label>
+					<select class="form-control" name="tipo_componente" ng-model="tipo_componente">
+						<option ng-repeat="tipo in tipos_componentes" ng-value="tipo.id">
+							{{tipo.nombre}}
+						</option>
+					</select>
+				</div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="showPreview" ng-change="showPreviewChanged();" class="ng-pristine ng-valid">Show preview of excel file
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="showJSONPreview" class="ng-valid ng-dirty">Show JSON preview of selected sheet
+                    </label>
+                </div>
+                <div ng-show="isProcessing" style="display: none;">
+                    <span>Processing ...</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="sheet_name">Sheet Name</label>
+                    <select id="sheet_name" class="form-control ng-pristine ng-invalid ng-invalid-required" ng-change="updateJSONString()" ng-model="selectedSheetName" required="required" ng-required="true" ng-options="sheetName as sheetName for (sheetName, sheetData) in sheets"><option value="" class="">---- Select a sheet ----</option></select>
+                </div>
+
+                <input type="hidden" name="sheet_name" value="">
+
+                <a class="btn btn-success" ng-click="subir_componentes()">Subir componentes</a>
+                
+                <div ng-show="showJSONPreview">
+                    <h4>JSON Preview of selected sheet</h4>
+                    <pre class="langauge-javascript"><code ng-bind="json_string"></code>
+                    </pre>
+                </div>
+                <div ng-show="showPreview">
+                    <div ng-repeat="(sheetName, sheetData) in sheets">
+                    	<h3>{{sheetName}}</h3>
+                    	<table class="componentes table table-bordered">
+                    		<tr ng-repeat="col in sheetData.data">
+                    			<td ng-repeat="row in col">{{row}}</td>
+                    		</tr>
+                    	</table>
+                    </div>
+                </div>
+            </form>

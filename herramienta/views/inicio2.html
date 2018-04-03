@@ -1,0 +1,89 @@
+<div id="slider_frontend" class="carousel slide">
+					   <!--Indicators -->
+					  <ol class="carousel-indicators">
+					    <li data-target="#slider_frontend" data-slide-to="0" class="active"></li>
+					    <li data-target="#slider_frontend" data-slide-to="1"></li>
+					    <li data-target="#slider_frontend" data-slide-to="2"></li>
+					  </ol>
+					
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner">
+					  	
+					    <div class="item active">
+					      <img src="img/slider1.jpg" style="margin-top:-60px">
+					      <div class="container">
+						      <!--<div class="carousel-caption">
+						      	<h1>Una imagen del laboratorio</h1>
+						      	<h3>Una bonita imagen, con mucho detalle <br> que explique algún fenómeno</h3>
+						      </div>-->
+					      </div>
+					    </div>
+					    					    <div class="item">
+					    	<img src="img/slider5.jpg" style="margin-top:-80px">
+					    	<div class="container">
+						    	<!--<div class="carousel-caption">
+							      	<h1>Otra imagen del laboratorio</h1>
+							      	<h3>Otra bonita imagen, con mucho detalle <br> con gente trabajando</h3>
+							    </div>-->
+						    </div>
+					    </div>
+					    <div class="item">
+					    	<img src="img/slider4.jpg" style="margin-top:-80px">
+					    	<div class="container">
+						    	<!--<div class="carousel-caption">
+							      	<h1>Otra imagen del laboratorio</h1>
+							      	<h3>Otra bonita imagen, con mucho detalle <br> con gente trabajando</h3>
+							    </div>-->
+						    </div>
+					    </div>
+					  </div>
+</div>
+<script>
+	$("#slider_frontend").carousel({interval:5000});		
+</script>
+<div class="col-md-6">
+		<div class="logo"><img src="img/aiguasol-chile.png"/></div>
+</div>
+<div class="col-md-6 naranjo-claro">
+	<div class"row"><br>
+		<div class="col-md-8 col-md-offset-2">
+		<!--<form name="form_empresa" novalidate>
+			<h2 class="centro">¿Quieres conocer el potencial solar de tu empresa?</h2>
+			<h3 class="centro">Realiza tu simulación acá</h3>
+			<h4 class="justificado"></h4>
+			<input ng-model="empresa.contacto" name="contacto" type="text" required class="form-control centro" placeholder="Nombre de contacto">
+			<div ng-show="form_empresa.$dirty">
+				<alert type="warning" ng-show="form_empresa.contacto.$error.required">Este campo es necesario</alert>
+			</div>
+			<br>
+			<input ng-model="empresa.email" name="email" type="email" required class="form-control centro" placeholder="Correo de contacto">
+			<div ng-show="form_empresa.email.$dirty">
+				<alert type="warning" ng-show="form_empresa.email.$error.email">Ingrese un mail válido porfavor</alert>
+			</div>
+			<div ng-show="form_empresa.$dirty">
+				<alert type="warning" ng-show="form_empresa.email.$error.required">Este campo es necesario</alert>
+			</div>
+			<br>
+			<input ng-model="empresa.nombre" name="nombre" type="text" required class="form-control centro" placeholder="Nombre Empresa">
+			<div ng-show="form_empresa.$dirty">
+				<alert type="warning" ng-show="form_empresa.nombre.$error.required">Este campo es necesario</alert>
+			</div>
+			<br>
+			<div class="centro">
+			<a class="btn btn-success" ng-click="a_clivaje(form_empresa)">Quiero Simular</a>
+			</div>
+		</form>-->
+		<h4 class="centro">Inicia tu sesión acá</h4>
+		<form name="form_login" ng-controller="loginCtrl">
+			<div class="form-group">
+					<div class="col-md-12"><input type="text" class="form-control" placeholder="Usuario" ng-model="user.username"/></div>
+			</div><br><br>
+				<div class="form-group">
+					<div class="col-md-12"><input type="password" class="form-control" placeholder="Contraseña" ng-model="user.pass"/></div>
+				</div><br><br>
+				<div class="centro"><button type="button" class="btn btn-success" ng-click="intento_logueo()">Iniciar sesión</button></div>
+		</form>
+		</div>
+	</div>
+		
+</div>

@@ -1,0 +1,14 @@
+<div class="left-menu">
+	<ul>
+		<li ng-class="active('inicio')">
+			<a href="#!/admin/inicio">Inicio</a>
+		</li>
+		<li ng-class="active('informacion')"><div><a href="#!/admin/informacion" ng-click="location.href='#!/admin/informacion'">Mi informacion</a></div></li>
+		<li ng-class="active('simulaciones')" ng-click="location.href='#!/admin/simulaciones'"><a href="#!/admin/simulaciones">Industrias y simulaciones</a></li>
+		<li ng-class="active('consultoras')" ng-click="location.href='#!/admin/consultoras'" ng-show="session_admin()"><a href="#!/admin/consultoras">Consultoras y usuarios</a></li>
+		<li class="exit"><a ng-click="cerrar_sesion()">CERRAR SESIÓN</a></li>
+	</ul>
+</div>
+<div ui-view>
+	
+</div>

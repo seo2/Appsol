@@ -1,0 +1,25 @@
+<head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+	$.get("http://localhost/front-app-inner/data_get.php",function(data){
+		$("#resultado").http(data);
+	});
+</script>
+</head>
+<body>
+	<pre id="resultado">
+		
+	</pre>
+</body>
+<table>
+	<tr>
+		<td>Nombre de empresa y planta</td><td></td>
+		<td>Localidad, Comuna y Región</td><td></td>
+		<td>Nombre y cargo persona de contacto</td><td></td>
+		<td>Dirección postal</td><td></td>
+		<td>Teléfono y mail</td><td></td>
+		<td>Rubro</td><td></td>
+	</tr>
+</table>

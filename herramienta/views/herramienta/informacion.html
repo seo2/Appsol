@@ -1,0 +1,10 @@
+<div class="row">
+		<div class="col-md-10 col-md-offset-2">
+		<h3>Mi información <a class="editar" ng-show="!editando" ng-click="editar()">Editar</a><a class="editar" ng-show="editando" ng-click="guardar()">Guardar</a></h3>
+		<table class="table">
+			<tr><td>Nombre de la empresa</td><td>{{empresa.nombre}}</td></tr>
+			<tr><td>Contacto de la empresa</td><td><div ng-show="!editando">{{empresa.contacto}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.contacto"/></td></tr>
+			<tr><td>Email de contacto de la empresa</td><td><div ng-show="!editando">{{empresa.email}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.email"/></td></tr>
+		</table>
+		</div>
+</div>

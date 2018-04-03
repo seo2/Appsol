@@ -1,0 +1,68 @@
+<div class="row lista_empresas">
+	<div class="col-md-12">
+		<div class="col-md-10 col-md-offset-2">
+		<h3>Listado de industrias</h3>
+		<div class="centro"><a class="btn btn-success" data-toggle="modal" data-target="#pop_agregar_industria">Agregar industria</a><br><br></div>
+		<input ng-model="filtro_empresas" class="form-control"/>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel" ng-repeat="industria in industrias | filter:filtro_empresas"> 
+		    <div class="panel-heading naranjo-medio" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" href="#industria{{$index}}">
+		          {{industria.nombre}}
+		        </a>
+		        <a class="editar">creada por: {{industria.creador}} el: {{industria.created_at|date:"dd-MM-yyyy HH:mm"}}</a>
+		      </h4>
+		    </div>
+		    <div id="industria{{$index}}" class="panel-collapse collapse" aria-expanded="false" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		        <table class="table">
+		        	<thead>
+		        		<tr>
+		        			<th>Nombre Simulación</th><th>Fecha última modificación</th><th>Fracción solar óptima</th><th>Ahorro óptimo</th><th>Acción</th>
+		        		</tr>
+		        	</thead>
+		        	<tr ng-repeat="simulacion in industria.simulacions">
+		        		<td width="30%">{{simulacion.nombre}}</td><td>{{simulacion.updated_at|date:"dd-mm-yyyy"}}</td><td></td><td></td><td><a class="btn btn-success" ng-click="abrir_simulacion(industria,simulacion)">Ver</a></td>
+		        	</tr>
+		        </table>
+		        <a class="btn btn-success" ng-click="nueva_simulacion(industria)">Agregar simulación</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<script>
+		$("#accordion").collapse({toggle:false});
+	</script>
+</div>
+<div class="modal fade" id="pop_agregar_industria" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Agregar industria</h4>
+      </div>
+      <div class="modal-body">
+      	<form class="form-horizontal">	
+			<div class="form-group">
+				<label class="col-md-4 col-md-offset-2 control-label">Nombre de industria</label>
+				<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_industria.nombre"/></div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 col-md-offset-2 control-label">Nombre del contacto</label>
+				<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_industria.contacto"/></div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 col-md-offset-2 control-label">Email de contacto</label>
+				<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_industria.email"/></div>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="agregar_industria()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>

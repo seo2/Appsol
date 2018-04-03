@@ -1,0 +1,66 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-2">
+		<h3>Lista de consultoras inscritas en la plataforma</h3>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel" ng-repeat="empresa in empresas | filter:filtro_empresas"> 
+		    <div class="panel-heading" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" href="#Empresa{{$index}}">
+		          {{empresa.nombre}}
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="Empresa{{$index}}" class="panel-collapse collapse" aria-expanded="false" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		        <table class="table">
+		        	<tr><td>Nombre de la empresa</td><td>{{empresa.nombre}}</td></tr>
+		        	<tr><td>Nombre de usuario</td><td>{{empresa.user.username}}</td></tr>
+					<tr><td>Contacto de la empresa</td><td><div ng-show="!editando">{{empresa.contacto}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.contacto"/></td></tr>
+					<tr><td>Email de contacto de la empresa</td><td><div ng-show="!editando">{{empresa.email}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.email"/></td></tr>
+		        </table>
+		        <a class="btn btn-default" ng-hide="editando" ng-click="">editar</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<a class="btn btn-success" data-toggle="modal" data-target="#pop_agregar_consultora">Agregar Consultora</a>
+	</div>
+</div>
+	<div class="modal fade" id="pop_agregar_consultora" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Agregar consultora</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form class="form-horizontal">	
+		      		<div class="form-group">
+						<label class="col-md-4 col-md-offset-2 control-label">Nombre de usuario</label>
+						<div class="col-md-4"><input type="text" class="form-control" ng-model="user.username"/></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 col-md-offset-2 control-label">Contraseña</label>
+						<div class="col-md-4"><input type="password" class="form-control" ng-model="user.pass"/></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 col-md-offset-2 control-label">Nombre de consultora</label>
+						<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_empresa.nombre"/></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 col-md-offset-2 control-label">Nombre del contacto</label>
+						<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_empresa.contacto"/></div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 col-md-offset-2 control-label">Email de contacto</label>
+						<div class="col-md-4"><input type="text" class="form-control" ng-model="nueva_empresa.email"/></div>
+					</div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		        <button type="button" class="btn btn-success" ng-click="agregar_consultora()">Agregar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>

@@ -1,0 +1,39 @@
+<div ng-repeat="tipo in tipos_componentes">
+	<h3>{{tipo.nombre}}</h3>
+	<a class="btn btn-success" ng-click ="exportar_tabla($index)">Exportar a excel</a>
+	<table class="propiedades table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th ng-click="tipo.filtro='nombre';tipo.reverso=!tipo.reverso;">Nombre</th>
+				<th ng-repeat="campo in tipo.campos" ng-click="tipo.filtro=campo.nombre;tipo.reverso=!tipo.reverso;">
+					{{campo.nombre}}
+				</th>
+				<th ng-click="tipo.filtro='nombre';tipo.reverso=!tipo.reverso;">Fecha creación</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>
+					<input ng-model="tipo.filtron.nombre" />
+				</th>
+				<th ng-repeat="campo in tipo.campos">
+					<input ng-model="tipo.filtron[campo.nombre]"/>
+				</th>
+				<th ng-click="tipo.filtro='created_at';tipo.reverso=!tipo.reverso;">
+					<input ng-model="tipo.filtron.created_at" />
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="componente in componentes[tipo.id] | orderBy:rawProperty(tipo.filtro):tipo.reverso | filter:tipo.filtron">
+				<td>{{componente["id"]}}</td>
+				<td>{{componente["nombre"]}}</td>
+				<td ng-repeat="valor in tipo.campos">
+					{{componente[valor.nombre]}}
+				</td>
+				<td>{{componente["created_at"]|date:"yyyy-MM dd-HH:mm"}}</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>

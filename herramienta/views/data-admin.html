@@ -1,0 +1,137 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-2">
+				<h3>Agregar nuevo componente</h3>
+				<br>
+				<select ng-model="tipo_nuevo_componente" ng-change="cargar_campos(tipo_nuevo_componente)" class="form-control">
+					<option ng-repeat="tipo_componente in tipos_componentes"  ng-value="$index">{{tipo_componente.nombre}}</option>
+				</select>
+			</div>
+			<div class="col-md-5">
+				<br>
+					<div class="row" ng-repeat="campo in nuevo_comp_campos | limitTo: 17">
+						<div class="col-md-5">{{campo.nombre}}</div>
+						<div class="col-md-4" ng-if="campo.tipo_campo=='text'">
+							<input class="form-control" type="text" ng-model="campo.valor"/>
+						</div>
+						<div ng-if="campo.tipo_campo=='text'" class="col-md-2">
+							{{campo.opciones}}
+						</div>
+						<div class="col-md-4" ng-if="campo.tipo_campo=='select'">
+							<select class="form-control" ng-model="campo.valor">
+								<option ng-repeat="opcion in opciones(campo.opciones)" ng-value="opcion">{{opcion}}</option>
+							</select>
+						</div>
+					</div>
+			</div>
+			<div class="col-md-5">
+				<br>
+					<div class="row" ng-repeat="campo in nuevo_comp_campos">
+						<div ng-if="$index>16">
+							<div class="col-md-5">{{campo.nombre}}</div>
+							<div class="col-md-4" ng-if="campo.tipo_campo=='text'">
+								<input class="form-control" type="text" ng-model="campo.valor"/>
+							</div>
+							<div ng-if="campo.tipo_campo=='text'" class="col-md-2">
+								{{campo.opciones}}
+							</div>
+							<div class="col-md-4" ng-if="campo.tipo_campo=='select'">
+								<select class="form-control" ng-model="campo.valor">
+									<option ng-repeat="opcion in opciones(campo.opciones)" ng-value="opcion">{{opcion}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+		<br>
+		<a class="btn btn-success" ng-click="crear_componente()">Agregar componente</a>
+	</div>
+	<div class="col-md-6">
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+	<h3>Tipos de componentes</h3>
+	<table class="table componentes">
+		<tr ng-repeat="tipo_componente in tipos_componentes" ng-class="active_comp(tipo_componente.id)" ng-click="activar_componente($index)">
+			<td>{{tipo_componente.nombre}}</td>
+		</tr>
+	</table>
+	<input ng-model="nuevo_tipo_componente.nombre" class="form-control"/><a ng-click="crear_tipo_componente()" class="btn btn-success">Agregar tipo de componente</a>
+	</div>
+	<div class="col-md-6">
+	<h3>Propiedades</h3><a>mostrar todas </a><input type="checkbox" ng-model="mostrar_todas"/>
+	<table class="table propiedades">
+		<tr>
+			<th></th>
+			<th>Orden</th><th>id</th><th>nombre</th><th>tipo campo</th><th>opciones</th><th></th>
+		</tr>
+		<tr ng-if="mostrar_todas || check_link(propiedad.id)" ng-repeat="propiedad in propiedades | orderBy:'orden'">
+			<td><a class="btn btn-success" ng-if="check_link(propiedad.id)" ng-click="remove_link(propiedad.id)">Sí</a>
+				<a class="btn btn-danger" ng-if="!check_link(propiedad.id)" ng-click="create_link(propiedad.id)">No</a></td>
+			<td>{{propiedad.orden}}
+				<a class="glyphicon glyphicon-chevron-up" ng-click="subir_orden(propiedad.id,$index)"></a>
+				<a class="glyphicon glyphicon-chevron-down" ng-click="bajar_orden(propiedad.id,$index)"></a>
+			</td>
+			<td>{{propiedad.id}}</td>
+			<td>{{propiedad.nombre}}</td>
+			<td>{{propiedad.tipo_campo}}</td>
+			<td>{{propiedad.opciones}}</td>
+			<td><a class="glyphicon glyphicon-remove-circle" ng-click="eliminar_propiedad(propiedad.id,$index)"></a></td>
+		</tr>
+	</table>
+	<input ng-model="nueva_propiedad.nombre" class="form-control"/>
+	<select ng-model="nueva_propiedad.tipo_campo" class="form-control"><option ng-value="text">text</option><option ng-value="select">select</option></select>
+	<input ng-model="nueva_propiedad.opciones" class="form-control"/>
+	<a ng-click="crear_propiedad()" class="btn btn-success">Agregar propiedad</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div ng-repeat="tipo in tipos_componentes">
+				<h3>{{tipo.nombre}}</h3>
+				<a class="btn btn-success" ng-click ="exportar_tabla($index)">Exportar a excel</a>
+				<table class="componentes table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th ng-repeat="campo in tipo.campos| orderBy:'orden'" ng-click="tipo.filtro=campo.nombre;tipo.reverso=!tipo.reverso;">
+								{{campo.nombre}}
+							</th>
+							<th ng-click="tipo.filtro='nombre';tipo.reverso=!tipo.reverso;">Fecha creación</th>
+						</tr>
+						<tr>
+							<th></th>
+							<th ng-repeat="campo in tipo.campos| orderBy:'orden'">
+								<a ng-if="campo.tipo_campo=='text'">{{campo.opciones}}</a>
+							</th>
+							<th></th>
+						</tr>
+						<tr>
+							<th></th>
+							<th class="no-padding" ng-repeat="campo in tipo.campos | orderBy:'orden'">
+								<input class="form-control" ng-model="tipo.filtron[campo.nombre]"/>
+							</th>
+							<th class="no-padding" ng-click="tipo.filtro='created_at';tipo.reverso=!tipo.reverso;">
+								<input class="form-control" ng-model="tipo.filtron.created_at" />
+							</th>
+							<th class="no-padding"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="componente in componentes[tipo.id] | orderBy:rawProperty(tipo.filtro):tipo.reverso | filter:tipo.filtron">
+							<td>{{componente["id"]}}</td>
+							<td ng-repeat="valor in tipo.campos">
+								{{componente[valor.nombre]}}
+							</td>
+							<td>{{componente["created_at"]|date:"yyyy-MM dd-HH:mm"}}</td>
+							<td><a class="glyphicon glyphicon-remove-circle" ng-click="eliminar_componente(componente.id,$parent.$index)"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>

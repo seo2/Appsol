@@ -1,0 +1,128 @@
+<br>
+<div class="row">
+	<div class="col-md-6">
+			<ul class="nav nav-tabs" role="tablist">
+			  <li ng-class="get_active(1)"><a ng-click="set_active(1)">Resultados</a></li>
+			  <li ng-class="get_active(2)"><a ng-click="set_active(2)">Resumen datos</a></li>
+			</ul>
+	</div>
+	<div class="col-md-6">
+		<a class="btn btn-default" onclick="history.back()">Volver a paso anterior</a>
+		<a class="btn btn-default" ng-click="resimular()">Re-simular</a>
+		<a class="btn btn-success" ng-click="guardar_simulacion()">Guardar Simulacion </a>
+	</div>
+</div>
+<div class="row" ng-show="hoja==1">
+	<h3>Ahorro de costes energéticos vs área de colectores</h3>
+	<div class="col-md-6" style="height:300px;">
+		<nvd3 options="opciones" data="data"></nvd3>
+		<nvd3 options="opciones2" data="data2"></nvd3>
+	</div>
+	<div class="col-md-6" style="height:400px;">
+		<p class="bg-success">
+			La gráfica de la izquierda muestra el ahorro que trae para la industria una reducción en los costos de energía.
+			Dicha reducción de costos se produce por el precio de oferta de energía desde la ESCO.
+		</p>
+		<p>
+		El ahorro se calcula como el <b>%</b> de reducción sobre el precio de <b>kWh</b> en base al precio del combustible y a la cantidad de
+		combustible consumido, ambos datos ingresados anteriormente.
+		Esto quiere decir que si se realiza el proyecto la industria comprará una fracción de la energía que requiere en un nuevo precio, ofrecido por la ESCO.
+		</p>
+		<p>
+		El producto entre cantidad de energía comprada (llamada también fracción solar) y el nuevo precio de la energía (como ahorro porcentual), entregan el ahorro
+		neto para la empresa.
+		</p>
+		<p>
+		Como el % está calculado sobre el precio de la energía indicado por el cliente, el ahorro es para el año actual. A futuro, el ahorro quedará definido por las 
+		condiciones del contrato y por la evolución del precio de la energía.
+		</p>
+	</div>
+</div>
+<div class="row" ng-show="hoja==2">
+	<h3>Información utilizada para simular</h3>
+	<div class="col-md-6">
+		<table class="table table-small">
+			<tr>
+				<th colspan="6">Industria: {{industria.nombre}}</th>
+			</tr>
+			<tr>
+				<th colspan="6">Consumo energético</th>
+			</tr>
+			<tr>
+				<td>Consumo de combustible: </td><td>{{simulacion.consumo}}</td><td><b>{{unidades_consumo[simulacion.unidad_consumo-1]}}</b></td>
+				<td>Eficiencia sistema: </td><td>{{simulacion.eficiencia}}</td><td><b>%</b></td>
+			</tr>
+			<tr>
+				<td>Precio de combustible: </td><td>{{simulacion.precio_combustible}}</td><td><b>{{unidades_precio_combustible[simulacion.unidad_precio_combustible-1]}}</b></td>
+				<td>Tipo de combustible: </td><td>{{combustibles[simulacion.combustible-1]}}</td><td></td>
+			</tr>
+			<tr>
+				<td>Precio de combustible (calculado): </td><td>{{precio_kwh*1000|number:2}}</td><td>USD$/MWh</td>
+			</tr>
+			<tr>
+				<td>Consumo de combustible: </td><td>{{simulacion.consumo}}</td><td><b>{{unidades_consumo[simulacion.unidad_consumo+1]}}</b></td>
+				<td>Consumo eléctrico: </td><td>{{simulacion.consumo_electrico}}</td><td><b>{{unidades_consumo_electrico[simulacion.unidad_consumo_electricos-1]}}</b></td>
+			</tr>
+			<tr>
+				<th colspan="6">Localización geográfica</th>
+			</tr>
+			<tr>
+				<td>Latitud</td><td>{{simulacion.latitud|number:2}}</td><td></td><td>Longitud</td><td>{{simulacion.longitud|number:2}}</td><td></td>
+			</tr>
+			<tr>
+				<td>Radiación</td><td>{{simulacion.radiacion}}</td><td>kWh/m2</td><td></td><td></td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-md-6">
+		<table class="table table-small">
+			<tr>
+				<th colspan="6">Información de planta</th>
+			</tr>
+			<tr>
+				<td>Rubro</td><td>{{simulacion.rubro}}</td><td></td><td>Superficie disponible</td><td>{{simulacion.superficie}} m2</td><td>{{lugares[simulacion.superficie_lugar-1]}}</td>
+			</tr>
+			<tr>
+				<th colspan="6">Información económica</th>
+			</tr>
+			<tr>
+				<td>TIR esperada</td><td><input ng-model="simulacion.tir"/></td><td>%</td><td>Periodo de evaluación</td><td><input ng-model="simulacion.periodo"/></td><td>años</td>
+			</tr>
+			<tr>
+				<td>Superficie</td><td><input ng-model="simulacion.area_max"/></td>
+			</tr>
+		</table>
+		<table class="table table-small" ng-if="session_admin()">
+			<tr><th></th><th>UFPC</th><th>FPC</th><th>ETC</th><th>PTC</th></tr>
+			<tr><td colspan="5">Inversión</td></tr>
+			<tr><td>A</td><td><input ng-model="simulacion.a_inv_UFPC" /></td><td><input ng-model="simulacion.a_inv_FPC"/></td><td><input ng-model="simulacion.a_inv_ETC"/></td><td><input ng-model="simulacion.a_inv_PTC"/></td></tr>
+			<tr><td>B</td><td><input ng-model="simulacion.b_inv_UFPC" /></td><td><input ng-model="simulacion.b_inv_FPC"/></td><td><input ng-model="simulacion.b_inv_ETC"/></td><td><input ng-model="simulacion.b_inv_PTC"/></td></tr>
+			<tr><td></td>
+				<td>{{simulacion.a_inv_UFPC*pow(simulacion.area_max,simulacion.b_inv_UFPC)|number:2}} $USD/m2</td>
+				<td>{{simulacion.a_inv_FPC*pow(simulacion.area_max,simulacion.b_inv_FPC)|number:2}} $USD/m2</td>
+				<td>{{simulacion.a_inv_ETC*pow(simulacion.area_max,simulacion.b_inv_ETC)|number:2}} $USD/m2</td>
+				<td>{{simulacion.a_inv_PTC*pow(simulacion.area_max,simulacion.b_inv_PTC)|number:2}} $USD/m2</td>
+			</tr>
+			<tr><td></td>
+				<td>
+					{{simulacion.a_inv_UFPC*pow(simulacion.area_max,simulacion.b_inv_UFPC)*simulacion.area_max|number:2}} $USD
+				</td>
+				<td>
+					{{simulacion.a_inv_FPC*pow(simulacion.area_max,simulacion.b_inv_FPC)*simulacion.area_max|number:2}} $USD
+				</td>
+				<td>
+					{{simulacion.a_inv_ETC*pow(simulacion.area_max,simulacion.b_inv_ETC)*simulacion.area_max|number:2}} $USD
+				</td>
+				<td>
+					{{simulacion.a_inv_PTC*pow(simulacion.area_max,simulacion.b_inv_PTC)*simulacion.area_max|number:2}} $USD
+				</td>
+			</tr>
+			<tr><td colspan="5">Matención</td></tr>
+			<tr><td>A</td><td><input ng-model="simulacion.a_mant_UFPC" /></td><td><input ng-model="simulacion.a_mant_FPC"/></td><td><input ng-model="simulacion.a_mant_ETC"/></td><td><input ng-model="simulacion.a_mant_PTC"/></td></tr>
+			<tr><td>B</td><td><input ng-model="simulacion.b_mant_UFPC" /></td><td><input ng-model="simulacion.b_mant_FPC"/></td><td><input ng-model="simulacion.b_mant_ETC"/></td><td><input ng-model="simulacion.b_mant_PTC"/></td></tr>
+			<tr><td colspan="5">Acumulación</td></tr>
+			<tr><td>A</td><td colspan="4"><input ng-model="simulacion.a_acum"/></td></tr>
+			<tr><td>B</td><td colspan="4"><input ng-model="simulacion.b_acum"/></td></tr>
+		</table>
+	</div>
+</div>

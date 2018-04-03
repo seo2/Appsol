@@ -1,0 +1,334 @@
+<head>
+		<script src="js/jquery-1.8.0.min.js"></script>
+		<script src="js/angular-file-upload-shim.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-file-upload.js"></script>
+		<script src="js/angular-simple-logger.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/angular-resource.min.js"></script>
+		<script src="js/highcharts.src.js"></script>
+		<script src="js/highcharts-ng.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular-ui-router.js"></script>
+		<script src="js/jstorage.js"></script>
+		<script src="js/calendar.js"></script>
+		<script src="js/fullcalendar.js"></script>
+		<script src="js/bootstrap-colorpicker-module.js"></script>
+		<script src="js/gcal.js"></script>
+		<script src="js/lodash.js"></script>
+		<script src="js/bluebird.js"></script>
+		<script src='//maps.googleapis.com/maps/api/js?key=AIzaSyC0sPoWWled5WUXV5EXUZOwEywN6Ana1JE&sensor=false'></script>
+		<script src="js/angular-google-maps.js"></script>
+		<script src="js/controller3.js"></script>
+		<script src="js/dateformat.js"></script>
+		<script src="js/d3.js"></script>
+		<script src="js/nv.d3.js"></script>
+		<script src="js/angular-nvd3.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css"/>
+		<link rel="stylesheet" href="css/nv.d3.css"/>
+		<link rel="stylesheet" href="css/fullcalendar.css"/>
+		<link rel="stylesheet" href="css/principal2.css" />
+		<link rel="stylesheet" href="css/colorpicker.css" />
+		<title>Appsol try</title>
+		<!--<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'>-->
+	</head>
+<body ng-app="principal">
+	<div ng-controller="mainAppsol">
+		<div class="row header-top">
+			<div class="col-md-8 col-md-offset-2">
+				<img class="icono-header" src="img/appsol-blanco-trans.png" />
+				<h1 class="titulo-header"> Toolkit </h1>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-md-8 col-md-offset-2 content-body">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>1 - Datos básicos </h3>
+					<form name="form_izq" class="form-horizontal">
+						<!--<div class="form-group">
+							<label class="col-md-3 control-label">Nombre simulacion</label>
+							<div class="col-md-9"><input type="text" required class="form-control" popover="Este es un identificador para diferenciar la simulación en caso de que realice otras después"  popover-trigger="focus" popover-placement="top" ng-model="simulacion.nombre"/></div>
+						</div>-->
+						<div class="form-group">
+							<label class="col-md-5 control-label">Rubro</label>
+							<div class="col-md-7">
+								<select type="text" required popover="El rubro está asociado a la simulación, en caso de que su empresa presente más de un rubro. Con esta información se puede conocer aproximadamente las condiciones de operación de su industria."  popover-trigger="focus" popover-placement="right" class="form-control" ng-model="simulacion.rubro">
+				                    <option type="text" value="1514" ng-value="'1514'">Aceite</option>
+				                    <option value="1533" ng-value="'1533'">Alimento animales</option>
+				                    <option value="2695" ng-value="'2695'">Artículos de hormigon</option>
+				                    <option value="202X" ng-value="'202X'">Aserrado</option>
+				                    <option value="1542" ng-value="'1542'">Azúcar</option>
+				                    <option value="1554" ng-value="'1554'">Bebidas no alcohólicas</option>
+				                    <option value="1511" ng-value="'1511'">Carne</option>
+				                    <option value="210X" ng-value="'210X'">Cartón</option>
+				                    <option value="251X" ng-value="'251X'">Caucho</option>
+				                    <option value="2692" ng-value="'2692'">Cerámica</option>
+				                    <option value="1553" ng-value="'1553'">Cerveza</option>
+				                    <option value="1330" ng-value="'1330'">Cobre</option>
+				                    <option value="1543" ng-value="'1543'">Confites</option>
+				                    <option value="1911" ng-value="'1911'">Curtido</option>
+				                    <option value="1551" ng-value="'1551'">Destilados</option>
+				                    <option value="2424" ng-value="'2424'">Detergentes</option>
+				                    <option value="2423" ng-value="'2423'">Farmaceéutica</option>
+				                    <option value="1544" ng-value="'1544'">Fideos</option>
+				                    <option value="1520" ng-value="'1520'">Lácteos</option>
+				                    <option value="1541" ng-value="'1541'">Panadería</option>
+				                    <option value="2101" ng-value="'2101'">Papel</option>
+				                    <option value="1512" ng-value="'1512'">Pescado</option>
+				                    <option value="2422" ng-value="'2422'">Pinturas</option>
+				                    <option value="2413" ng-value="'2413'">Plásticos prim.</option>
+				                    <option value="2421" ng-value="'2421'">Plaguicidas</option>
+				                    <option value="2520" ng-value="'2520'">Productos plásticos</option>
+				                    <option value="172X" ng-value="'172X'">Ropa</option>
+				                    <option value="1600" ng-value="'1600'">Tabaco</option>
+				                    <option value="171X" ng-value="'171X'">Textiles</option>
+				                    <option value="1513" ng-value="'1513'">Vegetales procesados</option>
+				                    <option value="1552" ng-value="'1552'">Vino</option>              
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-5 control-label">Superficie disponible</label>
+							<div class="col-md-3">
+								<input type="text" required class="form-control" popover="Esta es la superficie que está disponible para colocar colectores solares. Puede ser superficie libre en suelo o techo"  popover-trigger="focus" popover-placement="top" ng-model="simulacion.superficie"/>
+							</div>
+							<div class="col-md-1"><label class="control-label">m&sup2;</label></div>
+							<div class="col-md-3">
+								<select required class="form-control" ng-init="simulacion.superficie_lugar = 1" ng-model="simulacion.superficie_lugar" popover="Este selector es relativo al tipo de estructura sobre la cual se sitúa la superficie libre. Las instalaciones sobre techo son levemente más caras que sobre el nivel del suelo" popover-trigger="focus" popover-placement="top">
+									<option value="1" ng-value="1">techo</option>
+									<option value="2" ng-value="2">suelo</option>
+								</select>
+							</div>
+						</div>
+					</form>
+					<h3>2 - Localización de la planta</h3>
+					<div id="map_canvas">
+					    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="events" refresh="map.refresh" control="map.control" options="options">
+					        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+					        </ui-gmap-marker>
+					    </ui-gmap-google-map>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<!-- CONSUMO ENERGÉTICO ################################################################################################ -->
+						<form name="form_der2" class="form-horizontal" novalidate>
+
+							<h3>3 - Consumo energético</h3>
+							<h4 class="gen-calor">3.1 - Generación de calor</h4>
+							<div class="form-group">
+								<label class="col-md-8 control-label">Tipo de combustible utilizado</label>
+								<div class="col-md-4">
+									<select class="form-control" required name="combustible" ng-model="simulacion.combustible">
+				                        <option value="1" ng-value="1">Carbón</option>
+				                        <option value="2" ng-value="2" ng-selected="true">Diesel</option>
+				                        <option value="3" ng-value="3">Fuel Oil N° 6</option>
+				                        <option value="4" ng-value="4">GNL</option>
+				                        <option value="5" ng-value="5">GLP</option>
+				                        <option value="6" ng-value="6">Leña</option>
+				                        <option value="7" ng-value="7">Pellets madera</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-8 control-label">Eficiencia general de generación</label>
+								<div class="col-md-2"><input required type="text" ng-init="simulacion.eficiencia=85" class="form-control" ng-model="simulacion.eficiencia" popover="Esta es la eficiencia general de la industria, incluye los equipos de generación, la red de distribución y los mismos procesos."  popover-trigger="focus" popover-placement="top"/></div>
+								<div clasS="col-md-1"><label class="control-label">%</label></div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-5 control-label">Consumo de combustible</label>
+								<div class="col-md-3"><input required type="text" class="form-control" ng-model="simulacion.consumo"/></div>
+								<div class="col-md-4">
+									<select required ng-model="simulacion.unidad_consumo" class="form-control">
+				                        <option value="1" ng-value="1" ng-selected="true">Ton/año</option>
+				                        <option value="2" ng-value="2">Kg/año</option>
+				                        <option value="3" ng-value="3" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">Litros/año</option>
+				                        <option value="4" ng-value="4" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">m3/año</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-5 control-label">Precio promedio del combustible</label>
+								<div class="col-md-3"><input type="text" class="form-control" ng-model="simulacion.precio_combustible"/></div>
+								<div class="col-md-4">
+									<select required ng-model="simulacion.unidad_precio_combustible" class="form-control">
+				                        <option value="1" ng-value="1">USD$/Ton</option>
+				                        <option value="2" ng-value="2" ng-selected="true">USD$/Kg</option>
+				                        <option value="3" ng-value="3" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">USD$/Litros</option>
+				                        <option value="4" ng-value="4" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">USD$/m3</option>
+									</select>
+								</div>
+								<!--<div class="col-md-2">
+									dolar: {{dolar}}
+								</div>-->
+							</div>
+							<div class="form-group">
+								<label class="col-md-2 col-md-offset-6 control-label">IPE</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" ng-model="simulacion.ipe" popover="Factor de Incremento Precio Combustible"  popover-trigger="focus" popover-placement="top"/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-2 col-md-offset-6 control-label">IPC</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" ng-model="simulacion.ipc" popover="Indicador de Precio al Consumidor"  popover-trigger="focus" popover-placement="top"/>
+								</div>
+							</div>
+							<!--<h4 class="gen-frio">3.2 - Generación de frío</h4>
+							<div class="form-group">
+								<label class="col-md-4 control-label">Consumo de electricidad</label>
+								<div class="col-md-5"><input type="text" class="form-control" ng-model="simulacion.consumo_electrico" popover="Este es el consumo eléctrico proveniente del sistema de generación de frío"  popover-trigger="focus" popover-placement="top"/></div>
+								<div class="col-md-3">
+									<select ng-model="sumulacion.unidad_consumo_electrico" class="form-control">
+				                        <option value="1">MW/año</option>
+				                        <option value="2">kW/año</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label">COP estimado</label>
+								<div class="col-md-2"><input type="text" class="form-control" ng-model="simulacion.cop" popover="Este es el rendimiento del sistema de generación de frío"  popover-trigger="focus" popover-placement="top" /></div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label">Precio promedio electricidad</label>
+								<div class="col-md-2"><input type="text" class="form-control" ng-model="simulacion.precio_electricidad" popover="Este es el precio por kWh promedio del último año de producción"  popover-trigger="focus" popover-placement="top" /></div>
+								<div class="col-md-2"><label class="control-label">USD$/kW</label></div>
+							</div>-->
+						</form>
+				</div>
+			</div>
+			<div class="row centered">
+				<br>
+				<a class="btn btn-simular full-size" data-toggle="modal" ng-click="simular()">Simular</a>
+			</div>
+			<div class="row" id="titulo-resultados">
+				<br><br>
+				<h1 align="center" ng-show="simulado">Resultados</h1>
+				<div class="comentarios-full" ng-show="simulado">Abajo se encuentran los resultados de las simulaciones realizadas a través de las curvas de Appsol. Sólo se muestran las tecnologías que están seleccionadas con ticket.</div>
+				<table class="table" align="center" ng-show="simulado">
+					<tr>
+						<td class="UFPC-label"><input ng-click="filtrar(0)" ng-value="1" ng-checked="true" class="form-control" type="checkbox" ng-model="show_UFPC">UFPC</td>
+						<td class="FPC-label"><input ng-click="filtrar(1)" ng-value="1" ng-checked="true" class="form-control" type="checkbox" ng-model="show_FPC">FPC</td>
+						<td class="ETC-label"><input ng-click="filtrar(2)" ng-value="1" ng-checked="true" class="form-control" type="checkbox" ng-model="show_ETC">ETC</td>
+						<td class="PTC-label"><input ng-click="filtrar(3)" ng-value="1" ng-checked="true" class="form-control" type="checkbox" ng-model="show_PTC">PTC</td>
+					</tr>
+				</table>
+			</div>
+			<div class="row" ng-show="simulado">
+				<div class="col-md-6">
+					<highchart id="chart1" config="grafico1"></highchart>
+				</div>
+				<div class="col-md-6 comentarios">
+					<h2>Gráfico de producción y demanda</h2><br>
+					El gráfico de producción y demanda muestra la demanda térmica considerada para hacer los escenarios, y muestra cómo se comporta la energía generada por el sistema solar en función de la superficie instalada de colectores.<br><br>
+					A medida que las curvas se acercan a las columnas la fracción solar es mayor, vale decir, es mayor la proporción de combustible que se reemplaza. <br><br>
+				</div>
+			</div>
+			<div class="row" ng-show="simulado">
+				<div class="col-md-6">
+					<highchart id="chart2" config="grafico2"></highchart>
+				</div>
+				<div class="col-md-6 comentarios">
+					<h2>Gráfico de indicadores económicos</h2><br>
+					El gráfico de indicadores económicos muestra la evolución del VAN (Valor Actual Neto) y del payback (periodo de retorno) simple, en función de la superficie instalada de colectores. <br><br>
+					El periodo de análisis por defecto es de 15 años, y el periodo de retorno no contempla el efecto del IPE o IPC.<br><br>
+
+				</div>
+			</div>
+			<div class="row" ng-show="simulado">
+				<div class="col-md-6">
+					<highchart id="chart3" config="grafico3"></highchart>
+				</div>
+				<div class="col-md-6 comentarios">
+					<h2>Gráfico de inversión y ahorro</h2><br>
+					El gráfico de inversión y ahorro muestra el monto total de implementación del proyecto (según cada tipo de tecnología) en función de la superficie instalada de colectores (considera mano de obra e impuestos). <br><br>
+					El ahorro acumulado sí considera el efecto del IPE y del IPC.
+
+				</div>
+			</div>
+			<div class="row" ng-show="simulado">
+				<div class="col-md-6">
+					<highchart id="chart4" config="grafico4"></highchart>
+				</div>
+				<div class="col-md-6 comentarios">
+					<h2>Gráfico de ahorros ofrecidos por la ESCO</h2><br>
+					El gráfico de ahorros ofrecidos por la ESCO (Energy Service Company) muestra el ahorro porcentual en energía térmica que podría ofrecer un proyecto energético financiado 100% a través de un contrato ESCO. <br><br>
+					Este ahorro está calculado con el precio marginal de producción de energía en un horizonte de 15 años con una tir espera del 10%.
+				</div>
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- 
+params.require(:Simulacion).permit(:id,:industria_id,:nombre,:region,:latitud,:tir,:periodo,
+      :longitud,:antiguedad,:recuperacion, :consumo_electrico_general, :unidad_consumo_electrico_general,
+      :consumo_minimo,:unidad_consumo_minimo,:combustible,:tecnologia,:consumo,:consumo_electrico,
+      :cop,:eficiencia,:precio_combustible,:precio_electricidad,:superficie,:superficie_lugar,:unidad_consumo,
+      :unidad_consumo_electrico,:unidad_precio_combustible,:rubro,:ipe,:ipc,
+      :a_inv_UFPC,:a_inv_FPC,:a_inv_ETC,:a_inv_PTC,:b_inv_UFPC,:b_inv_FPC,:b_inv_ETC,:b_inv_PTC,
+      :a_mant_UFPC,:a_mant_FPC,:a_mant_ETC,:a_mant_PTC,:b_mant_UFPC,:b_mant_FPC,:b_mant_ETC,:b_mant_PTC,
+      :a_acum, :b_acum)
+-->
+
+<!--<div class="barra-nav">
+			<div class="col-md-6" ng-class="active(1)">
+				<a ng-click="set_hoja(1)">Consumo energético</a>
+			</div>
+			<div class="col-md-6" ng-class="active(2)">
+				<a ng-click="set_hoja(2)">Características de la planta</a>
+			</div>
+		</div>-->
+		
+		<!-- CARACTERÍSTICAS DE LA PLANTA ################################################################################################ -->
+		<!--<div>
+			<form name="form_der1" class="form-horizontal" novalidate>
+				<h3>3 - Características de la planta</h3>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Consumo mínimo de combustible (contrato)</label>
+					<div class="col-md-4">
+						<input type="text" ng-model="simulacion.consumo_minimo" class="form-control" popover="Este valor existe si en el contrato se ha acordado un mínimo de combustible a comprar con el proveedor"  popover-trigger="focus" popover-placement="top"/>
+					</div>
+					<div class="col-md-4">
+						<select required class="form-control" ng-init="simulacion.unidad_consumo_minimo = 1" ng-model="simulacion.unidad_consumo_minimo">
+						<option value="1" ng-selected="true">Ton/año</option>
+                        <option value="2" selected="">Kg/año</option>
+                        <option value="3" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">Litros/año</option>
+                        <option value="4" ng-if="simulacion.combustible!=1 && simulacion.combustible!=6 && simulacion.combustible!=7">m3/año</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Antigüedad de las instalaciones</label>
+					<div class="col-md-4">
+						<input type="text" ng-model="simulacion.antiguedad" required class="form-control" popover="Esta es la cantidad de años que lleva operativa la planta"  popover-trigger="focus" popover-placement="top" />
+					</div>
+					<label class="col-md-1 control-label">años</label>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Factura de electricidad</label>
+					<div class="col-md-5"><input type="text" class="form-control" ng-model="simulacion.consumo_electrico_general" popover="Esta es la cantidad de energía eléctrica consumida por la planta en total (todo, incluyendo los procesos productivos y no-productivos)"  popover-trigger="focus" popover-placement="top"/></div>
+					<div class="col-md-3">
+						<select ng-model="sumulacion.unidad_consumo_electrico_general" ng-init="simulacion.unidad_consumo_electrico_general = 1" class="form-control">
+	                        <option value="1" ng-selected="true">MW/año</option>
+	                        <option value="2">kW/año</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Precio promedio electricidad</label>
+					<div class="col-md-2"><input type="text" class="form-control" ng-model="simulacion.precio_electricidad" popover="Este es el precio por kWh promedio del último año de producción"  popover-trigger="focus" popover-placement="top" /></div>
+					<div class="col-md-2"><label class="control-label">USD$/kW</label></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Recuperación de calor</label>
+					<div class="col-md-2">
+						<input type="checkbox" ng-model="simulacion.recuperacion" required class="form-control" popover="¿La empresa cuenta con algún ciclo de recuperación de calor?"  popover-trigger="focus" popover-placement="top" />
+					</div>
+				</div>
+			</form>
+		</div>-->

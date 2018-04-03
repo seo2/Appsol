@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-md-4">
+		<h3>Datos de la empresa <a class="editar" ng-show="!editando" ng-click="editar()">Editar</a><a class="editar" ng-show="editando" ng-click="guardar()">Guardar</a></h3>
+		<table class="table">
+			<tr><td>Nombre de la empresa</td><td>{{empresa.nombre}}</td></tr>
+			<tr><td>Contacto de la empresa</td><td><div ng-show="!editando">{{empresa.contacto}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.contacto"/></td></tr>
+			<tr><td>Email de contacto de la empresa</td><td><div ng-show="!editando">{{empresa.email}}</div><input ng-show="editando" type="text" class="form-control" ng-model="empresa.email"/></td></tr>
+		</table>
+	</div>
+	<div class="col-md-12">
+		<h3>Simulaciones Realizadas</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Nombre</th><th>Fecha de creación</th><th>máximo ahorro de la simulación</th><th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="simulacion in empresa.simulacions">
+					<td>{{simulacion.nombre}}</td><td>{{simulacion.created_at|date:"dd-MM-yyyy HH:mm"}}</td><td></td><td>
+						<a class="btn btn-success" ng-click="abrir_simulacion(simulacion)">Ver resultados</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-success" href="#!/nueva_simulacion">Nueva simulación</a>
+	</div>
+</div>
