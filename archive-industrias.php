@@ -1,9 +1,20 @@
 <?php get_header(); ?>
 <?php $themeURL = get_stylesheet_directory_uri(); ?>
-    <header >
-
-         <img src="<?php echo $themeURL; ?>/assets/img/banner_industrias.jpg" class="img-responsive center-block" >
-      
+    <header>
+        <img src="<?php echo $themeURL; ?>/assets/img/banner_industrias.jpg" class="img-responsive center-block" >
+        <div id="cajita" class="industrias">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">
+        				<div id="la-cajita">
+            				<span class="bolita bolita-r"></span>
+            				<span class="bolita bolita-l"></span>
+        					<p><strong>¿A QUÉ INDUSTRIA PERTENECES?</strong> <br>Revisa si tu empresa y sus procesos son candidatos para usar un sistema solar térmico</p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
     </header>
 
     <div class="contenido" id="naranja">
@@ -49,6 +60,17 @@
              wp_reset_postdata();
             endif;
             ?>
+            <div class="row">
+            	<div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
+            		<img src="<?php echo $themeURL; ?>/assets/img/tit-participantes.png" class="img-responsive">
+            	</div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-10 col-sm-offset-1">
+	            	<br>
+            		<img src="<?php echo $themeURL; ?>/assets/img/participan.jpg" class="img-responsive">
+            	</div>
+            </div>
          </div>   
         </section>
     </div>

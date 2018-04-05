@@ -14,14 +14,34 @@
                     if($the_query -> have_posts()) :                 
                     while ($the_query -> have_posts()) : $the_query -> the_post(); 
                 ?> 
-                
-				<img src="<?php echo  get_the_post_thumbnail_url() ?>" class="img-responsive center-block" alt="">
+                <div class="slide">
+	                <h1><?php the_title(); ?></h1>            	
+					<img src="<?php echo  get_the_post_thumbnail_url() ?>" class="img-responsive center-block" alt="">
+                </div>
                
                 <?php endwhile;
                       endif;
                 wp_reset_postdata(); ?>    
 
-            </div>      
+            </div>    
+            
+            <div id="cajita">
+            	<div class="container">
+            		<div class="row">
+            			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">
+            				<div id="la-cajita">
+	            				<span class="bolita bolita-r"></span>
+	            				<span class="bolita bolita-l"></span>
+            					<p><strong>APPSOL</strong> tiene por objetivo entregar al mercado conocimiento y herramientas 
+para el desarrollo de las distintas aplicaciones de la energía solar en la industria.
+</p>
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+            </div>
+            
+              
     </header>
 
             <?php

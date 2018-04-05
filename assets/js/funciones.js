@@ -1,7 +1,12 @@
+
+
 (function($) {
     "use strict"; // Start of use strict
 
 
+$('.slick').slick({
+	dots: true
+});
 /* Demo purposes only */
 $(".hover").mouseleave(
   function () {
@@ -49,7 +54,6 @@ $('body').css({'overflow':'visible'});
 
 
 $('.venobox').venobox();
-
  
  
 

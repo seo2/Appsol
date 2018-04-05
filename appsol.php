@@ -5,53 +5,34 @@
 ?>
 <?php get_header(); ?>
 <?php $themeURL = get_stylesheet_directory_uri(); ?>
- <header class="blanco">
-
- <section class="no-padding">
-        <div   class="container">    
-        	<div class="clearfix">&nbsp;</div>
-        	<div class="clearfix">&nbsp;</div>
-			<div class="col-xs-offset-2 col-sm-offset-1  col-md-offset-1  col-lg-offset-2" >
-			    <figure class="snip">
-			      <img src="<?php echo $themeURL; ?>/assets/img/proyectos/ico_01.jpg" />
-			      <figcaption><i class="text-center">AppSol</i></figcaption>
-			      <a href="<?php echo bloginfo('url');?>/appsol"></a>
-			    </figure>
-			    <figure class="snip">
-			      <img src="<?php echo $themeURL; ?>/assets/img/proyectos/ico_02.jpg" />
-			      <figcaption><i class="text-center">SolCoolAgreo</i></figcaption>
-			      <a href="#"></a>
-			    </figure>
-			    <figure class="snip">
-			      <img src="<?php echo $themeURL; ?>/assets/img/proyectos/ico_03.jpg" />
-			      <figcaption><i class="text-center">Formaciones</i></figcaption>
-			      <a href="<?php echo bloginfo('url');?>/formacion"></a>
-			    </figure>
-		    </div>
-		    <div class="clearfix">&nbsp;</div>
-		    <div class="clearfix">&nbsp;</div>
-
-		    <div class="half-circle col-lg-1"></div>
-            <div class="col-lg-11">
-            el proyecto / appsol<br><br>
-            El proyecto APPSOL tiene por objetivo propiciar un mayor conocimiento al mercado, acerca de las diferentes aplicaciones posibles de un Sistema Solar Térmico. En particular, se ha puesto foco en una parte importante de la industria productiva nacional, con el fin de estimar el potencial técnico-económico de implementar estas tecnologías en sus respectivos procesos industriales para generación de calor.
-            </div>
-            <div class="clearfix">&nbsp;</div>
-            <div class="clearfix">&nbsp;</div>
-
-          </div>
-    </section>  
+ <header>
+        <img src="<?php echo $themeURL; ?>/assets/img/banner-appsoltherm.jpg" class="img-responsive center-block" >
+        <div id="cajita" class="industrias">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">
+        				<div id="la-cajita">
+            				<span class="bolita bolita-r"></span>
+            				<span class="bolita bolita-l"></span>
+        					<p><strong>APPSOL-Therm </strong>entrega las herramientas que permiten estimar el potencial técnico-económico de implementar estas tecnologías en los procesos industriales que requieren generación de calor.<br><small>Proyecto Apoyado por Corfo (13BPC3-19182), desarrollado durante los años 2013 al 2015.</small></p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
  	
  </header>
  
  
 
 
-    <section class=" no-padding">
+
+
+    <section class="no-padding" id="menuinterno">
         <div class="container">
             
-            <div class="blanco navbar-collapse" >
-                <ul class="subnav center-block text-center">
+            <div class="navbar-collapse text-center" >
+                <ul class="subnav">
                     <li>
                         <a class="page-scroll" href="#Motivacion">Motivación</a>
                     </li>
@@ -77,16 +58,16 @@
             </div> 
  
             
-            <h4 class="cap text-center padding-top" id="Motivacion"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Motivación</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"></h4>
+            <h4 class="cap text-center padding-top" id="Motivacion"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Motivación</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4>
             <div class="col-lg-10 col-lg-offset-1 text-center">“La industria chilena consume un 22,3% de la matriz de energías secundarias, y un 64,5% de esa fracción corresponde al uso de combustibles fósiles. Gran parte de dichos combustibles se importa, lo que significa un 16% de la balanza comercial (Aduanas año 2013). En relación a esto, cabe destacar lo siguiente:</div>
 	 		<div class="clearfix">&nbsp;</div>
 	 		<div class="clearfix">&nbsp;</div>
 
 	 		<div class="col-lg-6">
-	 			<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> El costo de la energía térmica en la industria ronda los 100 USD$/MWh (Estimación propia).<br><br>
-				<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Un 74% de la industria tiene demandas térmicas con temperaturas de operación bajo 250°C (ENIA 2012).<br><br>
-				<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Chile tiene la radiación más elevada del planeta y tiene una radiación promedio muy superior a la de países como España, Alemania, Grecia, Holanda, Dinamarca, Suiza, Suecia, etc. (Todos referentes de la energía solar).<br><br>
-				<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> De las instalaciones solares nuevas (entre los años 2009-2012), un 96% de los proyectos fueron realizados en el sector residencial.
+	 			<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> El costo de la energía térmica en la industria ronda los 100 USD$/MWh (Estimación propia).<br><br>
+				<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> Un 74% de la industria tiene demandas térmicas con temperaturas de operación bajo 250°C (ENIA 2012).<br><br>
+				<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> Chile tiene la radiación más elevada del planeta y tiene una radiación promedio muy superior a la de países como España, Alemania, Grecia, Holanda, Dinamarca, Suiza, Suecia, etc. (Todos referentes de la energía solar).<br><br>
+				<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> De las instalaciones solares nuevas (entre los años 2009-2012), un 96% de los proyectos fueron realizados en el sector residencial.
 	 		</div>
 	 		<div class="col-lg-6 text-right">
 	 			<div class="caja_amarilla">
@@ -103,13 +84,13 @@
 	 		<div class="half-circle col-lg-1"></div>
             <div class="col-lg-11">
             <b>De esta forma Creemos que es posible:</b><br>
-			<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Convertirnos como país en un referente internacional en el conocimiento de las tecnologías solares para aplicaciones térmicas.<br>
-			<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Que la industria productiva se vuelva más competitiva a través del uso de esta energía sustentable.<br>
-			<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Que la balanza comercial se incline positivamente hacia las exportaciones y que se relaje la dependencia económica del precio de los combustibles fósiles.
+			<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> Convertirnos como país en un referente internacional en el conocimiento de las tecnologías solares para aplicaciones térmicas.<br>
+			<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> Que la industria productiva se vuelva más competitiva a través del uso de esta energía sustentable.<br>
+			<img src="<?php echo $themeURL; ?>/assets/img/ico-circle2.png"> Que la balanza comercial se incline positivamente hacia las exportaciones y que se relaje la dependencia económica del precio de los combustibles fósiles.
             </div>
  			<div class="clearfix">&nbsp;</div>
 
-            <h4 class="cap text-center padding-top" id="Resultados"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Resultado</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"></h4>
+            <h4 class="cap text-center padding-top" id="Resultados"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Resultado</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4>
             <div class="col-lg-12 text-center">
             Terminado el proyecto, se han obtenido numerosas conclusiones como resultado de un análisis de toda la información levantada acerca de las industrias y de evaluar por medio de APPSOL el potencial técnico-económico, el detalle se puede obtener en la documentación del proyecto, pero a modo de resumen, a continuación se presentan las preguntas que nos realizamos a la hora de proponer e imaginar el proyecto Appsol. Estas preguntas, que se detallaron en la metodología, ya en su mayoría pueden ser respondidas. 
             </div>
@@ -155,7 +136,7 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 			<div class="clearfix">&nbsp;</div>
 
 			 
-			<h4 class="cap text-center padding-top" id="Metodologia"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Metodología</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"></h4>
+			<h4 class="cap text-center padding-top" id="Metodologia"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Metodología</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4>
 			<div class="clearfix">&nbsp;</div>
 			<img src="<?php echo $themeURL; ?>/assets/img/proyectos/img_02.jpg" class="center-block img-responsive">
 			<div class="clearfix">&nbsp;</div>
@@ -204,47 +185,32 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 			</div>
 			
 			<div class="clearfix">&nbsp;</div>
-			<div class="half-circle col-lg-1"></div>
-            <div class="col-lg-11" id="Industrias"><h5 class="cap">Industrias</h5>
-			A partir de las 1649 industrias seleccionadas de la encuesta nacional de industrias (ENIA), se agruparon 31 industrias tipo. Este es el listado de dichas industrias.
-            </div>
+			<div class="row">
+				<div class="col-lg-12" id="Industrias">
+					<h4 class="cap text-center padding-top"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>INDUSTRIAS</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4>
+            
+					<img src="<?php echo $themeURL; ?>/assets/img/industrias.jpg" class="img-responsive">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<br><br>
+					A partir de las 1649 industrias seleccionadas de la encuesta nacional de industrias (ENIA), se agruparon 31 industrias tipo. Este es el listado de dichas industrias.
+	            
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 text-center">
+					<br><br>
+	                <a  href="<?php bloginfo('url'); ?>/industrias/" class="btn btn-primary">VER MÁS</a>
+	            
+				</div>
+			</div>
+			
 
             <div class="clearfix">&nbsp;</div>
 
-
-			<div class="col-xs-offset-2 col-sm-offset-2  col-md-offset-1  col-lg-offset-1" >
-			    
-			<?php
-            $args = array(
-              'post_type' => 'industrias',
-              'showposts' => 8,
-              'orderby'   => array(
-                'date' =>'ASC',
-                /*Other params*/
-               )
-            );
-            $my_query = new WP_Query($args); 
-            if( $my_query->have_posts() ) : 
-               while ($my_query->have_posts()) : $my_query->the_post();   
-            ?>
-
-            <figure class="snip">
-              <img src="<?php echo get_the_post_thumbnail_url() ?>" />
-              <figcaption><i class="text-center"><? the_title();?></i></figcaption>
-              <a href="<? the_permalink()?>"></a>
-            </figure>
-
-            <?php endwhile;
-            endif;
-            ?>
-
-			    
-
-
-		    </div>
-		    <div class="clearfix">&nbsp;</div>
-
-            <h4 class="cap text-center padding-top" id="Tecnologias"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Tecnología</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"></h4>
+            <h4 class="cap text-center padding-top" id="Tecnologias"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Tecnología</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4>
 
             <div class="clearfix">&nbsp;</div>
 
@@ -253,7 +219,7 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 	            <ul  class="nav nav-pills">
 	                <li class="active"> <a  href="#p1" data-toggle="tab">Colectores Planos</a></li>
 	                <li> <a href="#p2" data-toggle="tab">Colectores sin Cubierta</a></li>
-	                <li> <a href="#p3" data-toggle="tab">Colectores solaes de tubo vacío</a></li>
+	                <li> <a href="#p3" data-toggle="tab">Colectores solares de tubo vacío</a></li>
 	                <li> <a href="#p4" data-toggle="tab">Colectores cilíndrico - parabólico</a></li>
 	            </ul>
 
@@ -284,8 +250,8 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 						<img src="<?php echo $themeURL; ?>/assets/img/proyectos/img_06.jpg" class="center-block img-responsive"><br><br>
 						Los colectores de tubos de vacío se pueden clasificar en dos grandes grupos:<br><br>
 				        	<div class="col-lg-offset-1">
-				        	<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Colectores de tubo de flujo directo<br>
-							<img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> Colectores de tipo heat pipe
+				        	<img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> Colectores de tubo de flujo directo<br>
+							<img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> Colectores de tipo heat pipe
 			            	</div>
 			            </div>
 	                </div>
@@ -307,7 +273,7 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
             </div>
 
             <div class="clearfix">&nbsp;</div>
-            <h4 class="cap text-center padding-top" id="ZonasGeograficas"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Zonas Geográficas</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"></h4><br><br>
+            <h4 class="cap text-center padding-top" id="ZonasGeograficas"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Zonas Geográficas</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"></h4><br><br>
             <div class="col-lg-6 col-md-6 padding-top">
            		 A partir de un análisis casuístico de diferentes zonas climáticas, se terminaron por identificar 28 escenarios en los cuales es interesante evaluar el potencial de manera diferenciada. Cada uno de estas zonas no sólo introduce las variables meteorológicas, sino que también los costos de la instalación y el costo de la energía alternativa para la evaluación económica.
 			</div>
@@ -316,8 +282,8 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 			</div>
 
 			<div class="clearfix">&nbsp;</div>
-            <h4 class="cap text-center padding-top" id="Simulaciones"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Simulaciones</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"><br><span class="subt">CURVAS APPSOL</span></h4><br>
-            <img src="<?php echo $themeURL; ?>/assets/img/proyectos/img_10.jpg" class="center-block img-responsive"><br><br>
+            <h4 class="cap text-center padding-top" id="Simulaciones"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Simulaciones</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"><br><span class="subt">CURVAS APPSOL</span></h4><br>
+            <img src="<?php echo $themeURL; ?>/assets/img/curvas.png" class="center-block img-responsive"><br><br>
             La información recopilada por los WP1, WP2, WP3 y WP4 conforma una base de datos de más de 30.000 casos a simular. Cada uno de estos casos representa un sistema solar térmico distinto y proviene de una conjugación diferente en las variables de entrada.<br><br>
 			Esta información alimenta un modelo matemático-físico programado en Trnsys. Un software especializado en simulaciones dinámicas de sistemas energéticos.<br><br>
 			Al realizar los cálculos para un año tipo de funcionamiento, el modelo construido entrega la fracción solar que el sistema solar térmico será capaz de cubrir. Es decir, qué fracción de la demanda térmica de la industria será cubierta por energía solar y en definitiva el ahorro energético que el sistema genera.<br><br>
@@ -326,9 +292,13 @@ Capacitar en el desarrollo de proyectos es la siguiente etapa del proyecto APPSO
 			<img src="<?php echo $themeURL; ?>/assets/img/proyectos/img_11.jpg" class="center-block img-responsive"><br><br>
 
 			<div class="clearfix">&nbsp;</div>
-            <h4 class="cap text-center padding-top" id="Tecnologia"><img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"> <b>Participantes</b> <img src="<?php echo $themeURL; ?>/assets/img/icon-sol-16.png"><br><span class="subt">DEL PROYECTO</span></h4><br>
-            <img src="<?php echo $themeURL; ?>/assets/img/proyectos/img_12.jpg" class="center-block img-responsive"><br><br>
-
+            <h4 class="cap text-center padding-top" id="Tecnologia"><img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"> <b>Participantes</b> <img src="<?php echo $themeURL; ?>/assets/img/ico-circle.png"><br><span class="subt">DEL PROYECTO</span></h4><br>
+            <div class="row">
+            	<div class="col-sm-10 col-sm-offset-1">
+	            	<br>
+            		<img src="<?php echo $themeURL; ?>/assets/img/participan.jpg" class="img-responsive">
+            	</div>
+            </div>
         </div>
     </section>
 

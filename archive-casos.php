@@ -1,8 +1,22 @@
 <?php get_header(); ?>
 <?php $themeURL = get_stylesheet_directory_uri(); ?>
-<header >
+	<header>
 
          <img src="<?php echo $themeURL; ?>/assets/img/banner_casos.jpg" class="img-responsive center-block" alt="Somos agentes de cambio">
+            
+        <div id="cajita" class="eventos">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">
+        				<div id="la-cajita">
+            				<span class="bolita bolita-r"></span>
+            				<span class="bolita bolita-l"></span>
+        					<p><strong>Casos de Éxito</strong> <br> Revisa las empresas que ya operan con energía Solar.</p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
       
     </header>
 

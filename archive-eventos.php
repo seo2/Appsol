@@ -2,16 +2,32 @@
 <?php $themeURL = get_stylesheet_directory_uri(); ?>
 <header >
 
-         <img src="<?php echo $themeURL; ?>/assets/img/banner_eventos.jpg" class="img-responsive center-block" alt="Somos agentes de cambio">
+         <img src="<?php echo $themeURL; ?>/assets/img/banner_eventos.jpg?v=2" class="img-responsive center-block" alt="Somos agentes de cambio">
+            
+        <div id="cajita" class="eventos">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">
+        				<div id="la-cajita">
+            				<span class="bolita bolita-r"></span>
+            				<span class="bolita bolita-l"></span>
+        					<p><strong>Eventos</strong> <br> Inscríbete y participa con nosotros</p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
       
     </header>
 
     <div class="contenido">
+<!--
         <section class="no-padding col-lg-10 col-lg-offset-1 top">
             <div class="col-lg-10 col-lg-offset-1">    
             <h2 class="cap text-center"><b>Eventos 2017</b></h2>
             </div>
         </section>
+-->
 
         <section>
          <div class="container"> 
